@@ -22,6 +22,6 @@ int CasasNegociaveis::get_proprietario() {
 }
 
 //Funcoes
-void efetua_venda ();
-void efetua_hipoteca ();
-void efetua_cobranca ();
+void efetua_venda (){}
+void efetua_hipoteca (){}
+void efetua_cobranca (){}
