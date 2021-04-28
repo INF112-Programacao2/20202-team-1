@@ -10,7 +10,7 @@ private:
 	std::string _nome;
 
 public:
-	//Construtor oii ana!!
+	//Construtor
 	Jogador(int id, int quantidadeDinheiro, std::string nome);
 
 	//Setters
