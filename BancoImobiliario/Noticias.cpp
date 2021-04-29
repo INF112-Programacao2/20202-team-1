@@ -1,4 +1,4 @@
-#include "./Header/Noticias.h"
+#include "Noticias.h"
 
 //Construtor
 Noticias::Noticias(std::string nome, int posicao, std::string tipo) : CasasEspeciais(nome,posicao,tipo) {}

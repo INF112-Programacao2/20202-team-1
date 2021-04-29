@@ -18,22 +18,31 @@
     <ClInclude Include="Root.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Header\Acao.h">
+    <ClInclude Include="Acao.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Header\Casa.h">
+    <ClInclude Include="Casa.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Header\CasasEspeciais.h">
+    <ClInclude Include="CasasEspeciais.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Header\CasasNegociaveis.h">
+    <ClInclude Include="CasasNegociaveis.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Header\Jogador.h">
+    <ClInclude Include="Imovel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Exceptions\Header\JogadorException.h">
+    <ClInclude Include="Jogador.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="JogadorException.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Noticias.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Partida.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -44,22 +53,31 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Exceptions\Implementation\JogadorException.cpp">
+    <ClCompile Include="Acao.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Implementation\Acao.cpp">
+    <ClCompile Include="Casa.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Implementation\Casa.cpp">
+    <ClCompile Include="CasasEspeciais.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Implementation\CasasEspeciais.cpp">
+    <ClCompile Include="CasasNegociaveis.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Implementation\CasasNegociaveis.cpp">
+    <ClCompile Include="Imovel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Implementation\Jogador.cpp">
+    <ClCompile Include="Jogador.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="JogadorException.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Noticias.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Partida.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

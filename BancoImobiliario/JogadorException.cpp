@@ -1,4 +1,4 @@
-#include "./Header/JogadorException.h"
+#include "JogadorException.h"
 
 const char *ExcecaoJogador::what() const noexcept
 {

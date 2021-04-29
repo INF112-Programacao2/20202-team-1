@@ -1,5 +1,5 @@
 #include <iostream>
-#include "./Header/CasasNegociaveis.h"
+#include "CasasNegociaveis.h"
 
 // Construtor
 CasasNegociaveis::CasasNegociaveis(std::string nome, int posicao, int valor_hipoteca, int valor_compra, int proprietario): Casa(nome, posicao),_valor_hipoteca(valor_hipoteca),_valor_compra(valor_compra),_proprietario(proprietario) {}

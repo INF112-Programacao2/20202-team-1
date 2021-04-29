@@ -1,9 +1,12 @@
 //Devemos dar o Include de todas as classes nesse arquivo
-#include "Header/Acao.h"
-#include "Header/Casa.h"
-#include "Header/CasasEspeciais.h"
-#include "Header/CasasNegociaveis.h"
-#include "Header/Jogador.h"
+#include "Acao.h"
+#include "Casa.h"
+#include "CasasEspeciais.h"
+#include "CasasNegociaveis.h"
+#include "Imovel.h"
+#include "Jogador.h"
+#include "Noticias.h"
+#include "Partida.h"
 
 using namespace godot;
 
@@ -23,7 +26,8 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void* handle) {
     godot::register_class<Casa>();
     godot::register_class<CasasEspeciais>();
     godot::register_class<CasasNegociaveis>(); 
-    godot::register_class<Jogador>();f 
-
-
+    godot::register_class<Jogador>();
+    godot::register_class<Imovel>();
+    godot::register_class<Noticias>(); 
+    godot::register_class<Partida>(); 
 }

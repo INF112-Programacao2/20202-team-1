@@ -1,4 +1,4 @@
-#include "./Header/Partida.h"
+#include "Partida.h"
 #include <cstdlib>
 #include <time.h>
 #include <iostream>

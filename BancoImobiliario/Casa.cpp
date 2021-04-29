@@ -1,5 +1,5 @@
 #include <iostream>
-#include "./Header/Casa.h"
+#include "Casa.h"
 
 // Construtor
 Casa::Casa(std::string nome, int posicao) {

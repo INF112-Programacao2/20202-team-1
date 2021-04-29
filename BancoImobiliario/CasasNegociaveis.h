@@ -2,7 +2,7 @@
 #define INF112_CASAS_NEGOCIAVEIS_H
 
 #include <iostream>
-#include "./Header/Casa.h"
+#include "Casa.h"
 
 class CasasNegociaveis : public Casa
 {

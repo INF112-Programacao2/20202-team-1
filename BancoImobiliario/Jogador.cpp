@@ -1,5 +1,5 @@
 #include <iostream>
-#include "./Header/Jogador.h"
+#include "Jogador.h"
 
 // Construtor
 Jogador::Jogador(int id, int quantidadeDinheiro, std::string nome) {

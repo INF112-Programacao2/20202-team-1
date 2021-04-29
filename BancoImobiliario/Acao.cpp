@@ -1,5 +1,5 @@
 #include <iostream>
-#include "./Header/Acao.h"
+#include "Acao.h"
 
 // Construtor
 Acao::Acao(double indiceDeMultiplicacao) {
