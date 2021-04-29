@@ -2,6 +2,7 @@
 #define INF112_JOGADOR_H
 
 #include <iostream>
+#include <Godot.hpp>
 
 class Jogador
 {
