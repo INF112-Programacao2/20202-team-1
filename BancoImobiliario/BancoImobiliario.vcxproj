@@ -157,9 +157,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Exceptions\Header\JogadorException.h" />
+    <ClInclude Include="Header\Acao.h" />
+    <ClInclude Include="Header\Casa.h" />
+    <ClInclude Include="Header\CasasEspeciais.h" />
+    <ClInclude Include="Header\CasasNegociaveis.h" />
+    <ClInclude Include="Header\Jogador.h" />
     <ClInclude Include="Root.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Exceptions\Implementation\JogadorException.cpp" />
+    <ClCompile Include="Implementation\Acao.cpp" />
+    <ClCompile Include="Implementation\Casa.cpp" />
+    <ClCompile Include="Implementation\CasasEspeciais.cpp" />
+    <ClCompile Include="Implementation\CasasNegociaveis.cpp" />
+    <ClCompile Include="Implementation\Jogador.cpp" />
+    <ClCompile Include="Source.cpp" />
     <ClCompile Include="Root.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
