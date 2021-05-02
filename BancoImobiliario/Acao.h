@@ -2,15 +2,16 @@
 #define INF112_ACAO_H
 
 #include <iostream>
+#include "CasasNegociaveis.h"
 
-class Acao
+class Acao : CasasNegociaveis
 {
 private:
 	double _indiceDeMultiplicacao;
 
 public:
 	//Construtor
-	Acao(double indiceDeMultiplicacao);
+	Acao(std::string nome, int posicao, int valor_hipoteca, int valor_compra, int proprietario, double indiceDeMultiplicacao);
 
 	//Setters
 	void set_indiceDeMultiplicacao(double indiceDeMultiplicacao);

@@ -2,9 +2,8 @@
 #include "Acao.h"
 
 // Construtor
-Acao::Acao(double indiceDeMultiplicacao) {
-	_indiceDeMultiplicacao = indiceDeMultiplicacao;
-}
+Acao::Acao(std::string nome, int posicao, int valor_hipoteca, int valor_compra, int proprietario, double indiceDeMultiplicacao) :
+	CasasNegociaveis(nome, posicao, valor_hipoteca, valor_compra, proprietario), _indiceDeMultiplicacao(indiceDeMultiplicacao) {}
 
 // Setters
 void Acao::set_indiceDeMultiplicacao(double indiceDeMultiplicacao) {

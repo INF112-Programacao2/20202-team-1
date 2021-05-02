@@ -2,7 +2,7 @@
 #include "CasasNegociaveis.h"
 
 // Construtor
-CasasNegociaveis::CasasNegociaveis(std::string nome, int posicao, int valor_hipoteca, int valor_compra, int proprietario): Casa(nome, posicao),_valor_hipoteca(valor_hipoteca),_valor_compra(valor_compra),_proprietario(proprietario) {}
+CasasNegociaveis::CasasNegociaveis(std::string nome, int posicao, int valor_hipoteca, int valor_compra, int proprietario) : Casa(nome, posicao), _valor_hipoteca(valor_hipoteca), _valor_compra(valor_compra), _proprietario(proprietario) {}
 
 // Setters
 void CasasNegociaveis::set_proprietario(int proprietario) {
@@ -22,6 +22,9 @@ int CasasNegociaveis::get_proprietario() {
 }
 
 //Funcoes
-void efetua_venda (){}
-void efetua_hipoteca (){}
-void efetua_cobranca (){}
+void CasasNegociaveis::efetua_venda() {};
+void CasasNegociaveis::efetua_hipoteca() {};
+void CasasNegociaveis::efetua_cobranca() {}
+
+//Destrutor
+CasasNegociaveis::~CasasNegociaveis() {};
