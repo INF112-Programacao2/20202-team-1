@@ -1,18 +1,22 @@
 #pragma once
 
+#include "Casa.h"
+#include "Jogador.h"
+#include "Imovel.h"
+
 class Partida
 {
 private:
-    int num_jogadores;
-    int rodada;
+    Jogador* _jogador[6];
+    int _rodada;
+    Casa* _casas[36];
+
 public:
 //construtores e destrutores
     Partida();
     ~Partida();
 //getters e setters;
-    int get_num_jogadores();
     int get_rodada();
-    void set_num_jogadores(int);
     void set_rodada(int);
 //metodos da partida
     int nova_rodada();

@@ -15,7 +15,35 @@ std::string CasasEspeciais::get_tipo() {
 	return this->_tipo;
 }
 
-void CasasEspeciais::executa() {}
+void CasasEspeciais::executa(Jogador jogador) {
+	//Conferir número das casas
+	if (jogador.get_posicao() == 14) {
+		funcaoRestituicao(jogador);
+	}
+	else if (jogador.get_posicao() == 27) {
+		funcaoVaParaOXadrez(jogador);
+	}
+	else if (jogador.get_posicao() == 21) {
+		funcaoImposto(jogador);
+	}
+}
 
+//Retorna o valor da casa do xadrez
+void CasasEspeciais::funcaoVaParaOXadrez(Jogador jogador)
+{
+	jogador.set_posicao(9);
+}
+
+//Retorna 2000 para o dinheiro do jogador 
+void CasasEspeciais::funcaoRestituicao(Jogador jogador)
+{
+	jogador.receber_dinheiro(2000);
+}
+
+//Retorna -2000 para o dinheiro do jogador 
+void CasasEspeciais::funcaoImposto(Jogador jogador)
+{
+	jogador.pagar(2000);
+}
 
 CasasEspeciais::~CasasEspeciais() {};

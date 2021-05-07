@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "Casa.h"
+#include "Jogador.h"
 
 class CasasEspeciais : public Casa
 {
@@ -20,7 +21,11 @@ public:
 	std::string get_tipo();
 
     //Funcoes
-    virtual void executa();
+    virtual void executa(Jogador jogador);
+	void funcaoVaParaOXadrez(Jogador jogador);
+	void funcaoRestituicao(Jogador jogador);
+	void funcaoImposto(Jogador jogador);
+	void funcaoNoticia(Jogador jogador);
 
 	//Destrutor
 	~CasasEspeciais();

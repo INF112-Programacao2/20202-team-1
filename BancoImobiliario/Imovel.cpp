@@ -2,7 +2,8 @@
 #include <iostream>
 
 //construtor
-Imovel::Imovel(std::string nome, int posicao, int valor_hipoteca, int valor_compra, int proprietario) : CasasNegociaveis(nome,posicao,valor_hipoteca,valor_compra,proprietario){}
+Imovel::Imovel(std::string nome, int posicao, int valor_hipoteca, int valor_compra, int proprietario) : 
+    CasasNegociaveis(nome,posicao,valor_hipoteca,valor_compra,proprietario){}
 //Destrutor
 Imovel::~Imovel(){}
 

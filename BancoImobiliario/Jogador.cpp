@@ -2,10 +2,12 @@
 #include "Jogador.h"
 
 // Construtor
-Jogador::Jogador(int id, int quantidadeDinheiro, std::string nome) {
+Jogador::Jogador(int id, int quantidadeDinheiro, std::string nome, int posicao, std::string path) {
 	_id = id;
 	_quantidadeDinheiro = quantidadeDinheiro;
 	_nome = nome;
+	_posicao = posicao;
+	_path = path;
 }
 
 // Setters
@@ -21,6 +23,16 @@ void Jogador::set_nome(int nome) {
 	this->_nome = nome;
 }
 
+void Jogador::set_posicao(int posicao)
+{
+	this ->_posicao = posicao;
+}
+
+void Jogador::set_path(int path)
+{
+	this->_path = path;
+}
+
 // Getters 
 int Jogador::get_id() {
 	return this->_id;
@@ -32,6 +44,15 @@ int Jogador::get_quantidadeDinheiro() {
 
 std::string Jogador::get_nome() {
 	return this->_nome;
+}
+
+int Jogador::get_posicao()
+{
+	return _posicao;
+}
+
+std::string Jogador::get_path() {
+	return this->_path;
 }
 
 //Outros metodos
