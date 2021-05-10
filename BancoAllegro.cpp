@@ -67,54 +67,21 @@ int main()
 
     ALLEGRO_FONT* opensans_bold_32 = al_load_ttf_font("OpenSans-Bold.ttf", 32, 0);
 
-    bitmap[0] = al_load_bitmap("img/home.png");
-    bitmap[1] = al_load_bitmap("img/imovel0.png");
-    bitmap[2] = al_load_bitmap("img/imovel0.png");
-    bitmap[3] = al_load_bitmap("img/itau.png");
-    bitmap[4] = al_load_bitmap("img/imovel0.png");
-    bitmap[5] = al_load_bitmap("img/imovel1.png");
-    bitmap[6] = al_load_bitmap("img/news.png");
-    bitmap[7] = al_load_bitmap("img/imovel1.png");
-    bitmap[8] = al_load_bitmap("img/imovel1.png");
-    bitmap[9] = al_load_bitmap("img/jail.png");
-    bitmap[10] = al_load_bitmap("img/news.png");
-    bitmap[11] = al_load_bitmap("img/imovel2.png");
-    bitmap[12] = al_load_bitmap("img/nivea.png");
-    bitmap[13] = al_load_bitmap("img/imovel2.png");
-    bitmap[14] = al_load_bitmap("img/receive.png");
-    bitmap[15] = al_load_bitmap("img/imovel3.png");
-    bitmap[16] = al_load_bitmap("img/imovel3.png");
-    bitmap[17] = al_load_bitmap("img/imovel4.png");
-    bitmap[18] = al_load_bitmap("img/holiday.png");
-    bitmap[19] = al_load_bitmap("img/imovel4.png");
-    bitmap[20] = al_load_bitmap("img/vivo.png");
-    bitmap[21] = al_load_bitmap("img/pay.png");
-    bitmap[22] = al_load_bitmap("img/news.png");
-    bitmap[23] = al_load_bitmap("img/imovel5.png");
-    bitmap[24] = al_load_bitmap("img/imovel5.png");
-    bitmap[25] = al_load_bitmap("img/news.png");
-    bitmap[26] = al_load_bitmap("img/imovel5.png");
-    bitmap[27] = al_load_bitmap("img/go_to_jail.png");
-    bitmap[28] = al_load_bitmap("img/imovel6.png");
-    bitmap[29] = al_load_bitmap("img/news.png");
-    bitmap[30] = al_load_bitmap("img/imovel6.png");
-    bitmap[31] = al_load_bitmap("img/imovel6.png");
-    bitmap[32] = al_load_bitmap("img/imovel7.png");
-    bitmap[33] = al_load_bitmap("img/fiat.png");
-    bitmap[34] = al_load_bitmap("img/imovel7.png");
-    bitmap[35] = al_load_bitmap("img/imovel7.png");
-    players[0] = al_load_bitmap("img/player1.png");
-    players[1] = al_load_bitmap("img/player2.png");
-    players[2] = al_load_bitmap("img/player3.png");
-    players[3] = al_load_bitmap("img/player4.png");
-    players[4] = al_load_bitmap("img/player5.png");
-    players[5] = al_load_bitmap("img/player6.png");
+    for (int i = 0; i < 36; i ++) {
+        bitmap[i] = al_load_bitmap(partida.get_foto_casa(i).c_str());
+    }
+
+    for (int i = 0; i < 6; i++) {
+        players[i] = al_load_bitmap(partida.get_foto_jogador(i).c_str());
+    }
+
     dice[0] = al_load_bitmap("img/dice1.png");
     dice[1] = al_load_bitmap("img/dice2.png");
     dice[2] = al_load_bitmap("img/dice3.png");
     dice[3] = al_load_bitmap("img/dice4.png");
     dice[4] = al_load_bitmap("img/dice5.png");
     dice[5] = al_load_bitmap("img/dice6.png");
+
     blur = al_load_bitmap("img/blur.png");
     card_model = al_load_bitmap("img/card_model.png");
 

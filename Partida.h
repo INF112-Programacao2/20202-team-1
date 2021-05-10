@@ -21,6 +21,8 @@ public:
     void set_turno(int);
     int get_rodada();
     std::string get_nome_jogador(int);
+    std::string get_foto_jogador(int);
+    std::string get_foto_casa(int);
     //metodos da partida
     int novo_turno();
     void nova_rodada();
