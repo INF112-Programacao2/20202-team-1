@@ -119,10 +119,12 @@ int Partida::novo_turno()
     this->_turno++;
     return _turno;
 }
+
 void Partida::nova_rodada()
 {
     this->_rodada++;
 }
+
 std::pair<int, int> Partida::jogar_dados() //gera um numero aleatorio de 1 ate 6
 {
     srand(time(NULL));
@@ -131,4 +133,22 @@ std::pair<int, int> Partida::jogar_dados() //gera um numero aleatorio de 1 ate 6
     dados.first = (rand() % 6) + 1;
     dados.second = (rand() % 6) + 1;
     return dados;
+}
+
+bool Partida::jogador_perdeu(int i) {
+    if (this->_jogador[i]->get_quantidadeDinheiro() <= 0 && this->get_rodada() != 1) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+bool Partida::jogador_proprietario(int indiceJogador, int indiceProprietario) {
+    if (indiceProprietario == -1 || indiceProprietario != indiceJogador) {
+        return false;
+    }
+    else {
+        return true;
+    }
 }

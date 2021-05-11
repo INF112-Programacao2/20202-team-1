@@ -26,6 +26,8 @@ public:
     std::string get_foto_jogador(int);
     std::string get_nome_casa(int);
     std::string get_foto_casa(int);
+    bool jogador_perdeu(int);
+    bool jogador_proprietario(int indiceJogador, int indiceProprietario);
     //metodos da partida
     int novo_turno();
     void nova_rodada();
