@@ -3,7 +3,7 @@
 #include <time.h>
 
 //Construtor
-Noticias::Noticias(std::string nome, int posicao, std::string path, std::string tipo) : CasasEspeciais(nome, posicao, path, tipo), _valor(0), _texto("") {}
+Noticias::Noticias(std::string nome, int posicao, std::string path) : CasasEspeciais(nome, posicao, path), _valor(0), _texto("") {}
 //Destrutor
 Noticias::~Noticias() {}
 

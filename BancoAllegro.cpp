@@ -27,6 +27,10 @@ int main()
     }
     ALLEGRO_BITMAP* blur = NULL;
     ALLEGRO_BITMAP* card_model = NULL;
+    ALLEGRO_BITMAP* card_noticias[3];
+    for (int i = 0; i < 3; i++) {
+        card_noticias[i] = NULL;
+    }
 
     al_init();
 
@@ -65,7 +69,9 @@ int main()
     al_init_font_addon();
     al_init_ttf_addon();
 
+    ALLEGRO_FONT* opensans_bold_24 = al_load_ttf_font("OpenSans-Bold.ttf", 24, 0);
     ALLEGRO_FONT* opensans_bold_32 = al_load_ttf_font("OpenSans-Bold.ttf", 32, 0);
+    ALLEGRO_FONT* opensans_bold_48 = al_load_ttf_font("OpenSans-Bold.ttf", 48, 0);
 
     for (int i = 0; i < 36; i ++) {
         bitmap[i] = al_load_bitmap(partida.get_foto_casa(i).c_str());
@@ -84,6 +90,9 @@ int main()
 
     blur = al_load_bitmap("img/blur.png");
     card_model = al_load_bitmap("img/card_model.png");
+    card_noticias[0] = al_load_bitmap("img/noticias_down_model.png");
+    card_noticias[1] = al_load_bitmap("img/noticias_up_model.png");
+    card_noticias[2] = al_load_bitmap("img/noticias_back.png");
 
     int precos[36];
     for (int i = 0; i < 36; i++) {
@@ -179,6 +188,7 @@ int main()
                     if (i == 21) tmp = "-" + tmp + " ";
                     al_draw_text(opensans_bold_32, al_map_rgb(255, 255, 255), xCasa[i] + 96, yCasa[i] + 65, ALLEGRO_ALIGN_CENTRE, tmp.c_str());
                 }
+                al_draw_text(opensans_bold_32, al_map_rgb(255, 255, 255), xCasa[i] + 96, yCasa[i], ALLEGRO_ALIGN_CENTRE, partida.get_nome_casa(i).c_str());
             }
 
             //players
@@ -208,11 +218,6 @@ int main()
                         dice1Position = partida.jogar_dados().first;
                         dice2Position = partida.jogar_dados().second;
                         diceOn = true;
-                        partida.novo_turno();
-                        if (partida.get_turno() == 6) {
-                            partida.nova_rodada();
-                            partida.set_turno(0);
-                        }
                     }
                     else {
                         if (throwDice >= 400) {
@@ -241,11 +246,26 @@ int main()
                         }
                     }
                     else {
+                        partida.novo_turno();
+                        if (partida.get_turno() == 6) {
+                            partida.nova_rodada();
+                            partida.set_turno(0);
+                        }
                         playerMoving = false;
                     }
                 }
                 playerMovingAux = !playerMovingAux;
             }
+
+            //card noticias
+            if (mouseOn) al_draw_bitmap(card_noticias[2], 288, 324, 0);
+            else {
+                al_draw_bitmap(card_noticias[1], 288, 324, 0);
+            }
+            al_draw_multiline_text(opensans_bold_24,
+                al_map_rgb(255, 255, 255), 288 + (384/2), 324 + 100, 384 - 16, 32,
+                ALLEGRO_ALIGN_CENTRE, "exemplo de um texto com varias palavras, tipo tem mt palavra msm kkkkkk");
+            al_draw_text(opensans_bold_48, al_map_rgb(255, 255, 255), 288 + 384 - 12, 324 + 432 - 66, ALLEGRO_ALIGN_RIGHT, "+$1600");
 
             //mouse click
             if (mouseOn) {
@@ -266,19 +286,19 @@ int main()
                 }
             }
 
-
             std::string texto_rodada = "Rodada " + std::to_string(partida.get_rodada());
-            if (partida.get_rodada() == 0) texto_rodada = "Rodada 1";
-            std::string texto_nome = "Jogador " + partida.get_nome_jogador(partida.get_turno());
-            al_draw_text(opensans_bold_32, al_map_rgb(0, 0, 0), 500, 500, ALLEGRO_ALIGN_CENTRE, texto_rodada.c_str());
-            al_draw_text(opensans_bold_32, al_map_rgb(0, 0, 0), 500, 600, ALLEGRO_ALIGN_CENTRE, texto_nome.c_str());
+            std::string texto_nome = "Vez de " + partida.get_nome_jogador(partida.get_turno());
+            al_draw_text(opensans_bold_32, al_map_rgb(0, 0, 0), 1920 - 208, 120, ALLEGRO_ALIGN_RIGHT, texto_rodada.c_str());
+            al_draw_text(opensans_bold_32, al_map_rgb(0, 0, 0), 208, 120, ALLEGRO_ALIGN_LEFT, texto_nome.c_str());
 
             al_flip_display();
         }
     }
 
     al_destroy_display(display);
+    al_destroy_font(opensans_bold_24);
     al_destroy_font(opensans_bold_32);
+    al_destroy_font(opensans_bold_48);
     al_uninstall_keyboard();
     al_uninstall_mouse();
     al_destroy_timer(timer);
@@ -291,6 +311,9 @@ int main()
     }
     al_destroy_bitmap(blur);
     al_destroy_bitmap(card_model);
+    for (int i = 0; i < 3; i++) {
+        al_destroy_bitmap(card_noticias[i]);
+    }
 
     return 0;
 }

@@ -4,14 +4,16 @@
 #include <iostream>
 #include "CasasNegociaveis.h"
 
-class Acao : CasasNegociaveis
+class Acao : public CasasNegociaveis
 {
 private:
 	double _indiceDeMultiplicacao;
 
 public:
 	//Construtor
-	Acao(std::string nome, int posicao, std::string path, int valor_hipoteca, int valor_compra, int proprietario, double indiceDeMultiplicacao);
+	Acao(std::string nome, int posicao, std::string path, int valor_compra, double indiceDeMultiplicacao);
+	
+    virtual void efetua_cobranca(Jogador jogador, Jogador proprietario) override;
 
 	//Setters
 	void set_indiceDeMultiplicacao(double indiceDeMultiplicacao);

@@ -2,18 +2,7 @@
 #include "CasasEspeciais.h"
 //Casas especiais: noticias, feriado, xadrez, "va para o xadrez", "Restituicao +2000", "Imposto -2000"
 // Construtor
-CasasEspeciais::CasasEspeciais(std::string nome, int posicao, std::string path, std::string tipo) : Casa(nome, posicao, path), _tipo(tipo) {}
-
-// Setters
-void CasasEspeciais::set_tipo(std::string tipo) {
-	this->_tipo = tipo;
-}
-
-
-// Getters 
-std::string CasasEspeciais::get_tipo() {
-	return this->_tipo;
-}
+CasasEspeciais::CasasEspeciais(std::string nome, int posicao, std::string path) : Casa(nome, posicao, path) {}
 
 void CasasEspeciais::executa(Jogador jogador) {
 	//Conferir número das casas

@@ -7,7 +7,7 @@ private:
     int _valor;
     std::string _texto;
 public:
-    Noticias(std::string, int, std::string, std::string);
+    Noticias(std::string nome, int posicao, std::string path);
     ~Noticias();
     //getters
     int get_valor();
@@ -18,5 +18,3 @@ public:
     //metodos Noticias
     void executar_noticia();
 };
-
-

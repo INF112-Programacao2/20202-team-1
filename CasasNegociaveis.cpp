@@ -2,15 +2,11 @@
 #include "CasasNegociaveis.h"
 
 // Construtor
-CasasNegociaveis::CasasNegociaveis(std::string nome, int posicao, std::string path, int valor_compra, int valor_aluguel, int proprietario) :
-	Casa(nome, posicao, path), _valor_compra(valor_compra), _valor_aluguel(valor_aluguel), _proprietario(proprietario) {}
+CasasNegociaveis::CasasNegociaveis(std::string nome, int posicao, std::string path, int valor_compra) :
+	Casa(nome, posicao, path), _valor_compra(valor_compra), _proprietario(-1) {}
 
 // Setters
 void CasasNegociaveis::set_proprietario(int proprietario) {
-	this->_proprietario = proprietario;
-}
-
-void CasasNegociaveis::set_valor_aluguel(int proprietario) {
 	this->_proprietario = proprietario;
 }
 
@@ -30,10 +26,6 @@ int CasasNegociaveis::get_valor_compra() {
 	return this->_valor_compra;
 }
 
-int CasasNegociaveis::get_valor_aluguel() {
-	return this->_valor_compra;
-}
-
 //Funcoes
 void CasasNegociaveis::efetua_compra(Jogador jogador) {
 	jogador.pagar(this->get_valor_compra());
@@ -42,11 +34,6 @@ void CasasNegociaveis::efetua_compra(Jogador jogador) {
 /*void CasasNegociaveis::efetua_hipoteca() {
 
 };*/
-
-void CasasNegociaveis::efetua_cobranca(Jogador jogador, Jogador proprietario) {
-	jogador.pagar(this->get_valor_aluguel());
-	proprietario.receber_dinheiro(this->get_valor_aluguel());
-};
 
 //Destrutor
 CasasNegociaveis::~CasasNegociaveis() {};
