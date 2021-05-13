@@ -103,12 +103,14 @@ int main()
     assert (bitmap != NULL);
 
     bool running = true, diceOn = false, diceStillPressed = false, playerMoving = false, playerMovingAux = false;
-    bool mouseOn = false;
+    bool mouseOn = false, allReady = false, noticiaOn = false;
     float x = 0, y = 0;
     int width = al_get_display_width(display);
     int dice1Position = 0, dice2Position = 0, throwDice = 0, casaFinal = 0;
     int xMouse = 0, yMouse = 0;
     int casaClicada = -1;
+    std::string texto_noticia = "";
+    int valor_noticia = 0;
 
     //posicoes dos players
     int casaAtual[6];
@@ -188,7 +190,10 @@ int main()
                     if (i == 21) tmp = "-" + tmp + " ";
                     al_draw_text(opensans_bold_32, al_map_rgb(255, 255, 255), xCasa[i] + 96, yCasa[i] + 65, ALLEGRO_ALIGN_CENTRE, tmp.c_str());
                 }
-                al_draw_text(opensans_bold_32, al_map_rgb(255, 255, 255), xCasa[i] + 96, yCasa[i], ALLEGRO_ALIGN_CENTRE, partida.get_nome_casa(i).c_str());
+                if (i != 0 && i != 3 && i != 6 && i != 9 && i != 10 && i != 12 && i != 14 && i != 18 && i != 20 && i != 21 && i != 22 && i !=25 && i != 27 && i !=  29 && i != 33)
+                {
+                    al_draw_text(opensans_bold_32, al_map_rgb(255, 255, 255), xCasa[i] + 96, yCasa[i], ALLEGRO_ALIGN_CENTRE, partida.get_nome_casa(i).c_str());
+                }
             }
 
             //players
@@ -212,25 +217,34 @@ int main()
                 }
             }
             if (al_key_down(&keyState, ALLEGRO_KEY_SPACE)) {
-                if (!diceStillPressed && !playerMoving) {
+                if (!diceStillPressed && !playerMoving ) {
                     diceStillPressed = true;
-                    if (!diceOn) {
-                        dice1Position = partida.jogar_dados().first;
-                        dice2Position = partida.jogar_dados().second;
-                        diceOn = true;
+                    if (noticiaOn)
+                    {   
+                        noticiaOn = false;
+                        allReady = true;
                     }
-                    else {
-                        if (throwDice >= 400) {
-                            casaFinal = casaAtual[partida.get_turno()];
-                            casaFinal += dice1Position + dice2Position;
-                            if (casaFinal >= 36) {
-                                casaFinal -= 36;
+                    else
+                    {
+                        if (!diceOn) {
+                            dice1Position = partida.jogar_dados().first;
+                            dice2Position = partida.jogar_dados().second;
+                            diceOn = true;
+                        }
+                        else {
+                            if (throwDice >= 400) {
+                                casaFinal = casaAtual[partida.get_turno()];
+                                casaFinal += dice1Position + dice2Position;
+                                if (casaFinal >= 36) {
+                                    casaFinal -= 36;
+                                }
+                                playerMoving = true;
+                                throwDice = 0;
+                                diceOn = false;
                             }
-                            playerMoving = true;
-                            throwDice = 0;
-                            diceOn = false;
                         }
                     }
+                    
                 }
             }
             else {
@@ -246,27 +260,69 @@ int main()
                         }
                     }
                     else {
-                        partida.novo_turno();
-                        if (partida.get_turno() == 6) {
-                            partida.nova_rodada();
-                            partida.set_turno(0);
-                        }
+                        partida.set_posicao_jogador(partida.get_turno(), casaAtual[partida.get_turno()]);
                         playerMoving = false;
+
+                        if (partida.get_nome_casa(partida.get_posicao_jogador(partida.get_turno())) == "Noticia")
+                        {
+                            noticiaOn = true;
+
+                            if (Noticias* noticia = dynamic_cast<Noticias*> (partida.get_casa(partida.get_posicao_jogador(partida.get_turno()))))
+                            {
+                                noticia->executar_noticia();
+                                texto_noticia = noticia->get_texto();
+                                valor_noticia = noticia->get_valor();
+                            }
+                        }
+                        else
+                        {
+                            allReady = true;
+                        }
                     }
                 }
                 playerMovingAux = !playerMovingAux;
             }
 
             //card noticias
-            if (mouseOn) al_draw_bitmap(card_noticias[2], 288, 324, 0);
-            else {
-                al_draw_bitmap(card_noticias[1], 288, 324, 0);
-            }
-            al_draw_multiline_text(opensans_bold_24,
-                al_map_rgb(255, 255, 255), 288 + (384/2), 324 + 100, 384 - 16, 32,
-                ALLEGRO_ALIGN_CENTRE, "exemplo de um texto com varias palavras, tipo tem mt palavra msm kkkkkk");
-            al_draw_text(opensans_bold_48, al_map_rgb(255, 255, 255), 288 + 384 - 12, 324 + 432 - 66, ALLEGRO_ALIGN_RIGHT, "+$1600");
+           
+            if (noticiaOn)
+            {
+                std::string textoValorNoticia;
 
+                if (valor_noticia> 0)
+                {
+                    al_draw_bitmap(card_noticias[1], 288, 324, 0);
+                    textoValorNoticia = "+$" + std::to_string(valor_noticia);
+                }
+                else
+                {
+                    al_draw_bitmap(card_noticias[0], 288, 324, 0);
+                    textoValorNoticia = "-$" + std::to_string(valor_noticia * -1);
+                }
+                al_draw_multiline_text(opensans_bold_24,
+                    al_map_rgb(255, 255, 255), 288 + (384 / 2), 324 + 100, 384 - 16, 32,
+                    ALLEGRO_ALIGN_CENTRE, texto_noticia.c_str());
+
+                al_draw_text(opensans_bold_48, al_map_rgb(255, 255, 255), 288 + 384 - 12, 324 + 432 - 66, ALLEGRO_ALIGN_RIGHT, textoValorNoticia.c_str());
+               
+            }
+            else {
+                al_draw_bitmap(card_noticias[2], 288, 324, 0);
+
+            }
+            
+            //Finaliza o Turno do Jogador
+            if (allReady)
+            {
+                partida.novo_turno();
+                if (partida.get_turno() == 6) {
+                    partida.nova_rodada();
+                    partida.set_turno(0);
+                }
+                allReady = false;
+            }
+
+           
             //mouse click
             if (mouseOn) {
                 casaClicada = -1;

@@ -12,7 +12,7 @@ Partida::Partida() {
     _casas[3] = new Acao("Itaú", 0, "img/itau.png", 2000, 500);
     _casas[4] = new Imovel("Brisbane", 0, "img/imovel0.png", 400, 800);
     _casas[5] = new Imovel("Durban", 0, "img/imovel1.png", 500, 1000);
-    _casas[6] = new Noticias("Notícia", 0, "img/news.png");
+    _casas[6] = new Noticias("Noticia", 0, "img/news.png");
     _casas[7] = new Imovel("Nairóbi", 0, "img/imovel1.png", 600, 1200);
     _casas[8] = new Imovel("Luanda", 0, "img/imovel1.png", 700, 1400);
     _casas[9] = new CasasEspeciais("Xadrez", 0, "img/jail.png");
@@ -28,14 +28,14 @@ Partida::Partida() {
     _casas[19] = new Imovel("Miami", 0, "img/imovel4.png", 1300, 2600);
     _casas[20] = new Acao("Vivo", 0, "img/vivo.png", 2000, 500);
     _casas[21] = new CasasEspeciais("Pague", 0, "img/pay.png");
-    _casas[22] = new Noticias("Notícia", 0, "img/news.png");
+    _casas[22] = new Noticias("Noticia", 0, "img/news.png");
     _casas[23] = new Imovel("Roma", 0, "img/imovel5.png", 1400, 2800);
     _casas[24] = new Imovel("Madrid", 0, "img/imovel5.png", 1500, 3000);
-    _casas[25] = new Noticias("Notícia", 0, "img/news.png");
+    _casas[25] = new Noticias("Noticia", 0, "img/news.png");
     _casas[26] = new Imovel("Lisboa", 0, "img/imovel5.png", 1400, 2800);
     _casas[27] = new CasasEspeciais("Prisão", 0, "img/go_to_jail.png");
     _casas[28] = new Imovel("Pequim", 0, "img/imovel6.png", 1300, 2600);
-    _casas[29] = new Noticias("Notícia", 0, "img/news.png");
+    _casas[29] = new Noticias("Noticia", 0, "img/news.png");
     _casas[30] = new Imovel("Moscou", 0, "img/imovel6.png", 1200, 2400);
     _casas[31] = new Imovel("Pequim", 0, "img/imovel6.png", 1100, 2200);
     _casas[32] = new Imovel("Tokyo", 0, "img/imovel7.png", 1000, 2000);
@@ -85,6 +85,16 @@ int Partida::get_turno()
 int Partida::get_rodada()
 {
     return this->_rodada;
+}
+
+int Partida::get_posicao_jogador(int jogador_id)
+{
+    return this->_jogador[jogador_id]->get_posicao();
+}
+
+void Partida::set_posicao_jogador(int jogador_id, int posicao)
+{
+    this->_jogador[jogador_id]->set_posicao(posicao);
 }
 
 std::string Partida::get_nome_jogador(int i)
@@ -151,4 +161,9 @@ bool Partida::jogador_proprietario(int indiceJogador, int indiceProprietario) {
     else {
         return true;
     }
+}
+
+Casa* Partida::get_casa(int casa_id)
+{
+    return this->_casas[casa_id];
 }

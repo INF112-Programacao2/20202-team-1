@@ -29,7 +29,7 @@ public:
 	std::string get_path();
 
 	//Destrutor
-	~Casa();
+	virtual ~Casa();
 };
 
 #endif

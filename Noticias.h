@@ -14,7 +14,7 @@ public:
     std::string get_texto();
     //setters
     void set_valor(int);
-    std::string set_texto(std::string texto);
+    void set_texto(std::string texto);
     //metodos Noticias
     void executar_noticia();
 };
