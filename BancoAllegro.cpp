@@ -74,9 +74,9 @@ int main()
     al_init_ttf_addon();
     al_init_acodec_addon();
 
-    ALLEGRO_FONT* opensans_bold_24 = al_load_ttf_font("OpenSans-Bold.ttf", 24, 0);
-    ALLEGRO_FONT* opensans_bold_32 = al_load_ttf_font("OpenSans-Bold.ttf", 32, 0);
-    ALLEGRO_FONT* opensans_bold_48 = al_load_ttf_font("OpenSans-Bold.ttf", 48, 0);
+    ALLEGRO_FONT* opensans_bold_24 = al_load_ttf_font("ProductSansRegular.ttf", 24, 0);
+    ALLEGRO_FONT* opensans_bold_32 = al_load_ttf_font("ProductSansBold.ttf", 32, 0);
+    ALLEGRO_FONT* opensans_bold_48 = al_load_ttf_font("ProductSansBold.ttf", 48, 0);
 
     ALLEGRO_SAMPLE* themeSong = NULL;
     ALLEGRO_SAMPLE_INSTANCE* themeSongInstance = NULL;
