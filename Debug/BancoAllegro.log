@@ -1,5 +1,2 @@
 ﻿  BancoAllegro.cpp
-  Noticias.cpp
-C:\Users\felip\source\repos\20202-team-1\Noticias.cpp(35,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Generating Code...
   BancoAllegro.vcxproj -> C:\Users\felip\Source\Repos\20202-team-1\Debug\BancoAllegro.exe

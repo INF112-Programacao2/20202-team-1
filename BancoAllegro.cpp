@@ -7,6 +7,8 @@
 #include <allegro5\allegro_image.h>
 #include <allegro5\allegro_font.h>
 #include <allegro5\allegro_ttf.h>
+#include <allegro5/allegro_acodec.h>
+#include <allegro5/allegro_audio.h>
 #include "Partida.h"
 
 int main()
@@ -59,6 +61,8 @@ int main()
 
     al_install_keyboard();
     al_install_mouse();
+    al_install_audio();
+    
     al_register_event_source(queue, al_get_keyboard_event_source());
     al_register_event_source(queue, al_get_mouse_event_source());
     al_register_event_source(queue, al_get_display_event_source(display));
@@ -68,10 +72,20 @@ int main()
     al_init_image_addon();
     al_init_font_addon();
     al_init_ttf_addon();
+    al_init_acodec_addon();
 
     ALLEGRO_FONT* opensans_bold_24 = al_load_ttf_font("OpenSans-Bold.ttf", 24, 0);
     ALLEGRO_FONT* opensans_bold_32 = al_load_ttf_font("OpenSans-Bold.ttf", 32, 0);
     ALLEGRO_FONT* opensans_bold_48 = al_load_ttf_font("OpenSans-Bold.ttf", 48, 0);
+
+    ALLEGRO_SAMPLE* themeSong = NULL;
+    ALLEGRO_SAMPLE_INSTANCE* themeSongInstance = NULL;
+
+    al_reserve_samples(1);
+    themeSong = al_load_sample("sound/MiiPlaza.mp3");
+
+    themeSongInstance = al_create_sample_instance(themeSong);
+    al_attach_sample_instance_to_mixer(themeSongInstance, al_get_default_mixer());
 
     for (int i = 0; i < 36; i ++) {
         bitmap[i] = al_load_bitmap(partida.get_foto_casa(i).c_str());
@@ -143,7 +157,9 @@ int main()
             }
         }
     }
-
+   
+    al_set_sample_instance_playmode(themeSongInstance, ALLEGRO_PLAYMODE_LOOP);
+    al_play_sample_instance(themeSongInstance);
     al_start_timer(timer);
     while (running) {
         
@@ -355,8 +371,8 @@ int main()
     al_destroy_font(opensans_bold_24);
     al_destroy_font(opensans_bold_32);
     al_destroy_font(opensans_bold_48);
-    al_uninstall_keyboard();
-    al_uninstall_mouse();
+    al_destroy_sample_instance(themeSongInstance);
+    al_destroy_sample(themeSong);
     al_destroy_timer(timer);
     for (int i = 0; i < 36; i++) {
         al_destroy_bitmap(bitmap[i]);
@@ -370,6 +386,10 @@ int main()
     for (int i = 0; i < 3; i++) {
         al_destroy_bitmap(card_noticias[i]);
     }
+
+    al_uninstall_keyboard();
+    al_uninstall_mouse();
+    al_uninstall_audio();
 
     return 0;
 }
