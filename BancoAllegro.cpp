@@ -159,6 +159,7 @@ int main()
     }
    
     al_set_sample_instance_playmode(themeSongInstance, ALLEGRO_PLAYMODE_LOOP);
+    al_set_sample_instance_gain(themeSongInstance, -20);
     al_play_sample_instance(themeSongInstance);
     al_start_timer(timer);
     while (running) {
@@ -204,11 +205,11 @@ int main()
                     std::string tmp = "$" + std::to_string(precos[i]);
                     if (i == 14) tmp = "+" + tmp + " ";
                     if (i == 21) tmp = "-" + tmp + " ";
-                    al_draw_text(opensans_bold_32, al_map_rgb(255, 255, 255), xCasa[i] + 96, yCasa[i] + 65, ALLEGRO_ALIGN_CENTRE, tmp.c_str());
+                    al_draw_text(opensans_bold_32, al_map_rgb(255, 255, 255), xCasa[i] + 96, yCasa[i] + 68, ALLEGRO_ALIGN_CENTRE, tmp.c_str());
                 }
                 if (i != 0 && i != 3 && i != 6 && i != 9 && i != 10 && i != 12 && i != 14 && i != 18 && i != 20 && i != 21 && i != 22 && i !=25 && i != 27 && i !=  29 && i != 33)
                 {
-                    al_draw_text(opensans_bold_32, al_map_rgb(255, 255, 255), xCasa[i] + 96, yCasa[i], ALLEGRO_ALIGN_CENTRE, partida.get_nome_casa(i).c_str());
+                    al_draw_text(opensans_bold_32, al_map_rgb(255, 255, 255), xCasa[i] + 96, yCasa[i] + 3, ALLEGRO_ALIGN_CENTRE, partida.get_nome_casa(i).c_str());
                 }
             }
 
