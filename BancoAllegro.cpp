@@ -78,14 +78,14 @@ int main()
     ALLEGRO_FONT* opensans_bold_32 = al_load_ttf_font("ProductSansBold.ttf", 32, 0);
     ALLEGRO_FONT* opensans_bold_48 = al_load_ttf_font("ProductSansBold.ttf", 48, 0);
 
-    ALLEGRO_SAMPLE* themeSong = NULL;
+    /*ALLEGRO_SAMPLE* themeSong = NULL;
     ALLEGRO_SAMPLE_INSTANCE* themeSongInstance = NULL;
 
     al_reserve_samples(1);
     themeSong = al_load_sample("sound/MiiPlaza.mp3");
 
     themeSongInstance = al_create_sample_instance(themeSong);
-    al_attach_sample_instance_to_mixer(themeSongInstance, al_get_default_mixer());
+    al_attach_sample_instance_to_mixer(themeSongInstance, al_get_default_mixer());*/
 
     for (int i = 0; i < 36; i ++) {
         bitmap[i] = al_load_bitmap(partida.get_foto_casa(i).c_str());
@@ -158,9 +158,9 @@ int main()
         }
     }
    
-    al_set_sample_instance_playmode(themeSongInstance, ALLEGRO_PLAYMODE_LOOP);
+   /* al_set_sample_instance_playmode(themeSongInstance, ALLEGRO_PLAYMODE_LOOP);
     al_set_sample_instance_gain(themeSongInstance, -20);
-    al_play_sample_instance(themeSongInstance);
+    al_play_sample_instance(themeSongInstance);*/
     al_start_timer(timer);
     while (running) {
         
@@ -218,6 +218,27 @@ int main()
             for (int i = 5; i >= 0; i--) {
                 al_draw_bitmap(players[i], xCasa[casaAtual[i]] + 192 - 64 - 4 - xTabuleiro, yCasa[casaAtual[i]] + 22, 0);
                 xTabuleiro += 24;
+            }
+
+            //players data
+            xTabuleiro = 324;
+            for (int i = 5; i >= 0; i--) {
+                yTabuleiro = 240;
+                al_draw_text(opensans_bold_32, al_map_rgb(0, 0, 0), 1920 - xTabuleiro, yTabuleiro, ALLEGRO_ALIGN_CENTRE, partida.get_nome_jogador(i).c_str());
+                yTabuleiro += 50;
+                std::string dinheiroAux = "$" + std::to_string(partida.get_jogador(i)->get_quantidadeDinheiro());
+                al_draw_text(opensans_bold_32, al_map_rgb(0, 0, 0), 1920 - xTabuleiro, yTabuleiro, ALLEGRO_ALIGN_CENTRE, dinheiroAux.c_str());
+                yTabuleiro += 50;
+                for (int j = 0; j < 36; j++) {
+                    if (CasasNegociaveis* casaAux = dynamic_cast<CasasNegociaveis*> (partida.get_casa(j)))
+                    {
+                        if (casaAux->get_proprietario() == i) {
+                            al_draw_text(opensans_bold_24, al_map_rgb(0, 0, 0), 1920 - xTabuleiro, yTabuleiro, ALLEGRO_ALIGN_CENTRE, casaAux->get_nome().c_str());
+                            yTabuleiro += 36;
+                        }
+                    }
+                }
+                xTabuleiro += 160;
             }
 
             //dices
@@ -372,8 +393,8 @@ int main()
     al_destroy_font(opensans_bold_24);
     al_destroy_font(opensans_bold_32);
     al_destroy_font(opensans_bold_48);
-    al_destroy_sample_instance(themeSongInstance);
-    al_destroy_sample(themeSong);
+    //al_destroy_sample_instance(themeSongInstance);
+    //al_destroy_sample(themeSong);
     al_destroy_timer(timer);
     for (int i = 0; i < 36; i++) {
         al_destroy_bitmap(bitmap[i]);

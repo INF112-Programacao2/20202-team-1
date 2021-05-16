@@ -1,2 +1,5 @@
 ﻿  BancoAllegro.cpp
-  BancoAllegro.vcxproj -> C:\Users\felip\Source\Repos\20202-team-1\Debug\BancoAllegro.exe
+  Partida.cpp
+C:\Users\bruno\source\repos\20202-team-1\Partida.cpp(140,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+  BancoAllegro.vcxproj -> C:\Users\bruno\source\repos\20202-team-1\Debug\BancoAllegro.exe

@@ -32,6 +32,7 @@ public:
     bool jogador_perdeu(int);
     bool jogador_proprietario(int indiceJogador, int indiceProprietario);
     Casa* get_casa(int casa_id);
+    Jogador* get_jogador(int jogador_id);
 
     //metodos da partida
     int novo_turno();

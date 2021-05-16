@@ -9,7 +9,7 @@ Partida::Partida() {
     _casas[0] = new CasasEspeciais("Início", 0, "img/home.png");
     _casas[1] = new Imovel("Sydney", 0, "img/imovel0.png", 200, 400);
     _casas[2] = new Imovel("Camberra", 0, "img/imovel0.png", 300, 600);
-    _casas[3] = new Acao("Itaú", 0, "img/itau.png", 2000, 500);
+    _casas[3] = new Acao("Itau", 0, "img/itau.png", 2000, 500);
     _casas[4] = new Imovel("Brisbane", 0, "img/imovel0.png", 400, 800);
     _casas[5] = new Imovel("Durban", 0, "img/imovel1.png", 500, 1000);
     _casas[6] = new Noticias("Noticia", 0, "img/news.png");
@@ -67,12 +67,12 @@ Partida::Partida() {
         }
     }
 
-    _jogador[0] = new Jogador(0, 0, "Ana", 0, "img/player1.png");
-    _jogador[1] = new Jogador(0, 0, "Bruno", 1, "img/player2.png");
-    _jogador[2] = new Jogador(0, 0, "Felipe", 2, "img/player3.png");
-    _jogador[3] = new Jogador(0, 0, "Jonas", 3, "img/player4.png");
-    _jogador[4] = new Jogador(0, 0, "Lademir", 4, "img/player5.png");
-    _jogador[5] = new Jogador(0, 0, "Luisa", 5, "img/player6.png");
+    _jogador[0] = new Jogador(0, 15000, "Ana", 0, "img/player1.png");
+    _jogador[1] = new Jogador(1, 15000, "Bruno", 1, "img/player2.png");
+    _jogador[2] = new Jogador(2, 15000, "Felipe", 2, "img/player3.png");
+    _jogador[3] = new Jogador(3, 15000, "Jonas", 3, "img/player4.png");
+    _jogador[4] = new Jogador(4, 15000, "Lademir", 4, "img/player5.png");
+    _jogador[5] = new Jogador(5, 15000, "Luisa", 5, "img/player6.png");
 }
 
 Partida::~Partida() {}
@@ -166,4 +166,9 @@ bool Partida::jogador_proprietario(int indiceJogador, int indiceProprietario) {
 Casa* Partida::get_casa(int casa_id)
 {
     return this->_casas[casa_id];
+}
+
+Jogador* Partida::get_jogador(int jogador_id)
+{
+    return this->_jogador[jogador_id];
 }
