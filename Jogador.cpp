@@ -8,7 +8,7 @@ Jogador::Jogador(int id, int quantidadeDinheiro, std::string nome, int posicao, 
 	_nome = nome;
 	_posicao = posicao;
 	_path = path;
-	_preso = false;
+	_preso = 0;
 }
 
 // Setters
@@ -34,12 +34,8 @@ void Jogador::set_path(int path)
 	this->_path = path;
 }
 
-void Jogador::set_preso() {
-	this->_preso = true;
-}
-
-void Jogador::set_livre() {
-	this->_preso = false;
+void Jogador::set_preso(int i) {
+	this->_preso = i;
 }
 
 // Getters 
@@ -64,7 +60,7 @@ std::string Jogador::get_path() {
 	return this->_path;
 }
 
-bool Jogador::get_preso() {
+int Jogador::get_preso() {
 	return this->_preso;
 }
 
@@ -73,9 +69,13 @@ void Jogador::receber_dinheiro(int quantidade) {
 	this->set_quantidadeDinheiro(this->get_quantidadeDinheiro() + quantidade);
 }
 
-int Jogador::pagar(int quantidade) {
+void Jogador::pagar(int quantidade) throw(ExcecaoJogador) {
 	this->set_quantidadeDinheiro(this->get_quantidadeDinheiro() - quantidade);
-	return 0;
+	if (this->get_quantidadeDinheiro() <= 0)
+	{
+		this->set_quantidadeDinheiro(0);
+		throw ExcecaoJogador();
+	}
 }
 
 // Destrutor

@@ -11,9 +11,9 @@ Imovel::~Imovel() {}
 //funcoes
 void Imovel::cobrar() {}
 
-void Imovel::efetua_cobranca(Jogador jogador, Jogador proprietario) {
-	jogador.pagar(this->_valor_aluguel);
-	proprietario.receber_dinheiro(this->_valor_aluguel);
+void Imovel::efetua_cobranca(Jogador * jogador, Jogador * proprietario) {
+	jogador->pagar(this->_valor_aluguel);
+	proprietario->receber_dinheiro(this->_valor_aluguel);
 
 }
 

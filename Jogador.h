@@ -2,12 +2,13 @@
 #define INF112_JOGADOR_H
 
 #include <iostream>
+#include "JogadorException.h"
 
 class Jogador
 {
 private:
 	int _id, _quantidadeDinheiro, _posicao;
-	bool _preso;
+	int _preso;
 	std::string _nome, _path;
 
 public:
@@ -20,8 +21,7 @@ public:
 	void set_nome(int nome);
 	void set_posicao(int posicao);
 	void set_path(int path);
-	void set_preso();
-	void set_livre();
+	void set_preso(int i);
 
 	//Getters
 	int get_id();
@@ -29,11 +29,11 @@ public:
 	std::string get_nome();
 	int get_posicao();
 	std::string get_path();
-	bool get_preso();
+	int get_preso();
 
 	//Outros metodos
 	void receber_dinheiro(int quantidade);
-	int pagar(int quantidade);
+	void pagar(int quantidade) throw(ExcecaoJogador);
 
 	//Destrutor
 	~Jogador();

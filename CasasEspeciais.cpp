@@ -4,35 +4,36 @@
 // Construtor
 CasasEspeciais::CasasEspeciais(std::string nome, int posicao, std::string path) : Casa(nome, posicao, path) {}
 
-void CasasEspeciais::executa(Jogador jogador) {
+void CasasEspeciais::executa(Jogador * jogador) {
 	//Conferir número das casas
-	if (jogador.get_posicao() == 14) {
+	if (jogador->get_posicao() == 14) {
 		funcaoRestituicao(jogador);
 	}
-	else if (jogador.get_posicao() == 27) {
+	else if (jogador->get_posicao() == 27) {
 		funcaoVaParaOXadrez(jogador);
 	}
-	else if (jogador.get_posicao() == 21) {
+	else if (jogador->get_posicao() == 21) {
 		funcaoImposto(jogador);
 	}
 }
 
 //Retorna o valor da casa do xadrez
-void CasasEspeciais::funcaoVaParaOXadrez(Jogador jogador)
+void CasasEspeciais::funcaoVaParaOXadrez(Jogador * jogador)
 {
-	jogador.set_posicao(9);
+	jogador->set_preso(1);
+	jogador->set_posicao(9);
 }
 
 //Retorna 2000 para o dinheiro do jogador 
-void CasasEspeciais::funcaoRestituicao(Jogador jogador)
+void CasasEspeciais::funcaoRestituicao(Jogador * jogador)
 {
-	jogador.receber_dinheiro(2000);
+	jogador->receber_dinheiro(2000);
 }
 
 //Retorna -2000 para o dinheiro do jogador 
-void CasasEspeciais::funcaoImposto(Jogador jogador)
+void CasasEspeciais::funcaoImposto(Jogador * jogador)
 {
-	jogador.pagar(2000);
+	jogador->pagar(2000);
 }
 
 CasasEspeciais::~CasasEspeciais() {};

@@ -66,13 +66,13 @@ Partida::Partida() {
             }
         }
     }
-
-    _jogador[0] = new Jogador(0, 15000, "Ana", 0, "img/player1.png");
-    _jogador[1] = new Jogador(1, 15000, "Bruno", 1, "img/player2.png");
-    _jogador[2] = new Jogador(2, 15000, "Felipe", 2, "img/player3.png");
-    _jogador[3] = new Jogador(3, 15000, "Jonas", 3, "img/player4.png");
-    _jogador[4] = new Jogador(4, 15000, "Lademir", 4, "img/player5.png");
-    _jogador[5] = new Jogador(5, 15000, "Luisa", 5, "img/player6.png");
+    int dinheiroInicial = 1000;
+    _jogador[0] = new Jogador(0, dinheiroInicial, "Ana", 0, "img/player1.png");
+    _jogador[1] = new Jogador(1, dinheiroInicial, "Bruno", 1, "img/player2.png");
+    _jogador[2] = new Jogador(2, dinheiroInicial, "Felipe", 2, "img/player3.png");
+    _jogador[3] = new Jogador(3, dinheiroInicial, "Jonas", 3, "img/player4.png");
+    _jogador[4] = new Jogador(4, dinheiroInicial, "Lademir", 4, "img/player5.png");
+    _jogador[5] = new Jogador(5, dinheiroInicial, "Luisa", 5, "img/player6.png");
 }
 
 Partida::~Partida() {}

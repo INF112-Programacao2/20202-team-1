@@ -27,8 +27,8 @@ int CasasNegociaveis::get_valor_compra() {
 }
 
 //Funcoes
-void CasasNegociaveis::efetua_compra(Jogador jogador) {
-	jogador.pagar(this->get_valor_compra());
+void CasasNegociaveis::efetua_compra(Jogador * jogador) {
+	jogador->pagar(this->get_valor_compra());
 };
 
 /*void CasasNegociaveis::efetua_hipoteca() {

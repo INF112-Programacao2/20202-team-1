@@ -12,10 +12,10 @@ public:
 	CasasEspeciais(std::string nome, int posicao, std::string path);
 
 	//Funcoes
-	virtual void executa(Jogador jogador);
-	void funcaoVaParaOXadrez(Jogador jogador);
-	void funcaoRestituicao(Jogador jogador);
-	void funcaoImposto(Jogador jogador);
+	virtual void executa(Jogador * jogador);
+	void funcaoVaParaOXadrez(Jogador * jogador);
+	void funcaoRestituicao(Jogador * jogador);
+	void funcaoImposto(Jogador * jogador);
 
 	//Destrutor
 	~CasasEspeciais();

@@ -13,7 +13,7 @@ public:
 	//Construtor
 	Acao(std::string nome, int posicao, std::string path, int valor_compra, double indiceDeMultiplicacao);
 	
-    virtual void efetua_cobranca(Jogador jogador, Jogador proprietario) override;
+    virtual void efetua_cobranca(Jogador * jogador, Jogador * proprietario) override;
 
 	//Setters
 	void set_indiceDeMultiplicacao(double indiceDeMultiplicacao);
