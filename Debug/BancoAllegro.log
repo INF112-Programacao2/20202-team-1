@@ -1,3 +1,17 @@
-﻿  BancoAllegro.cpp
+﻿  Acao.cpp
 C:\Users\bruno\source\repos\20202-team-1\Jogador.h(36,49): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+C:\Users\bruno\source\repos\20202-team-1\Acao.cpp(9,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\bruno\source\repos\20202-team-1\Acao.cpp(10,12): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  BancoAllegro.cpp
+C:\Users\bruno\source\repos\20202-team-1\Jogador.h(36,49): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+  CasasNegociaveis.cpp
+C:\Users\bruno\source\repos\20202-team-1\Jogador.h(36,49): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+  Imovel.cpp
+C:\Users\bruno\source\repos\20202-team-1\Jogador.h(36,49): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+C:\Users\bruno\source\repos\20202-team-1\Imovel.cpp(20,39): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\bruno\source\repos\20202-team-1\Imovel.cpp(21,55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Partida.cpp
+C:\Users\bruno\source\repos\20202-team-1\Jogador.h(36,49): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+C:\Users\bruno\source\repos\20202-team-1\Partida.cpp(140,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
   BancoAllegro.vcxproj -> C:\Users\bruno\source\repos\20202-team-1\Debug\BancoAllegro.exe

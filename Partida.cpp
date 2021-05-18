@@ -66,7 +66,7 @@ Partida::Partida() {
             }
         }
     }
-    int dinheiroInicial = 2000;
+    int dinheiroInicial = 3000;
     _jogador[0] = new Jogador(0, dinheiroInicial, "Ana", 0, "img/player1.png");
     _jogador[1] = new Jogador(1, dinheiroInicial, "Bruno", 1, "img/player2.png");
     _jogador[2] = new Jogador(2, dinheiroInicial, "Felipe", 2, "img/player3.png");
