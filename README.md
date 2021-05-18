@@ -14,9 +14,9 @@
 
 - [Organização](#Organização)
 - [Execução](#Execução)
-- [Lista de Exceções](#Lista-de-Exceções)
+- [Diagrama de Classes](#Diagrama-de-classes)
+- [CRC's](#CRC-'-s)
 - [Responsáveis](#Responsáveis)
-- [CRC's](#CRC's)
 
 ## Organização
   O projeto está organizado em módulos que contém os cabeçalhos(.h) e implementações(.cpp), além da classe responsável pela interface gráfica(BancoAllegro.cpp).
@@ -27,7 +27,15 @@ Clonar o repositório no Visual Studio, alterar as configurações para DeBug x8
 <a>
     <img src="https://cdn.discordapp.com/attachments/661031591031603230/844213713870782494/unknown.png" alt="funcionamento" title="print" align="right"  />
 </a>
+
 <br>
+
+## Diagrama de Classes
+<a>
+    <img src="https://cdn.discordapp.com/attachments/729689711416967239/844222451209994250/diagrama_de_classes_t1.png" alt="diagrama_de_classes_t1" title="print" align="right"  />
+</a>
+
+<p>
 
 ## CRC's
 <table>
