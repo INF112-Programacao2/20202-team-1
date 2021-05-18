@@ -24,6 +24,10 @@
 ## Execução
 Clonar o repositório no Visual Studio, alterar as configurações para DeBug x86 e clicar em Local Windows Debugger.
 
+<a>
+    <img src="https://cdn.discordapp.com/attachments/661031591031603230/844213713870782494/unknown.png" alt="funcionamento" title="print" align="right" height="100" />
+</a>
+
 ## Responsáveis
 - [Ana Luísa Araújo Bastos](https://github.com/AnaLuisaAB) 
 - [Bruno Alencar Vieira de Rezende](https://github.com/bruno-avr)
