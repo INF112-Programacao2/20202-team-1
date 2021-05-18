@@ -1,6 +1,6 @@
 # 20202-team-1
 <a>
-    <img src="https://cdn.discordapp.com/attachments/729689711416967239/844210892916523018/Ygemzly2XsP3gzFbXjFyExvD00B3rBvPbDEOoNOB-4uL4NLF1YKM6kiypik1H4koNc5_sNVAAAy_PDq_kmh_CRmn1dvC1uyeckCs.png" alt="UFV logo" title="UFV" align="right" height="80" />
+    <img src="https://cdn.discordapp.com/attachments/729689711416967239/844210892916523018/Ygemzly2XsP3gzFbXjFyExvD00B3rBvPbDEOoNOB-4uL4NLF1YKM6kiypik1H4koNc5_sNVAAAy_PDq_kmh_CRmn1dvC1uyeckCs.png" alt="UFV logo" title="UFV" align="right" height="65" />
 </a>
 
 
@@ -28,6 +28,35 @@ Clonar o repositório no Visual Studio, alterar as configurações para DeBug x8
     <img src="https://cdn.discordapp.com/attachments/661031591031603230/844213713870782494/unknown.png" alt="funcionamento" title="print" align="right"  />
 </a>
 <br>
+
+## CRC's
+<table>
+<thead>
+<tr>
+<th>Classe: Jogador</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Responsabilidades</td>
+<td>Colaboração</td>
+</tr>
+<tr>
+<td>1.ID <br>
+2.Nome <br>
+3.QuantidadeDeDinheiro <br>
+4.Jogar dados <br>
+5.Receber Dinheiro <br>
+6.Dar Dinheiro <br>
+7.Comprar Imóvel <br>
+8.Comprar Ação <br>
+9.Pagar Aluguel <br>
+</td>
+<td>Jogabilidade;</td>
+</tr>
+</tbody>
+</table>
 
 
 ## Responsáveis
