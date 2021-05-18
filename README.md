@@ -1,6 +1,6 @@
 # 20202-team-1
 <a>
-    <img src="https://cdn.discordapp.com/attachments/729689711416967239/844210892916523018/Ygemzly2XsP3gzFbXjFyExvD00B3rBvPbDEOoNOB-4uL4NLF1YKM6kiypik1H4koNc5_sNVAAAy_PDq_kmh_CRmn1dvC1uyeckCs.png" alt="UFV logo" title="UFV" align="right" height="50" />
+    <img src="https://cdn.discordapp.com/attachments/729689711416967239/844210892916523018/Ygemzly2XsP3gzFbXjFyExvD00B3rBvPbDEOoNOB-4uL4NLF1YKM6kiypik1H4koNc5_sNVAAAy_PDq_kmh_CRmn1dvC1uyeckCs.png" alt="UFV logo" title="UFV" align="right" height="80" />
 </a>
 
 
@@ -27,7 +27,7 @@ Clonar o repositório no Visual Studio, alterar as configurações para DeBug x8
 <a>
     <img src="https://cdn.discordapp.com/attachments/661031591031603230/844213713870782494/unknown.png" alt="funcionamento" title="print" align="right"  />
 </a>
-
+<br>
 
 
 ## Responsáveis
