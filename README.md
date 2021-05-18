@@ -12,13 +12,13 @@
 
 ## Índice
 
-- [Organização do projeto](#Organização do projeto)
+- [Organização](#Organização)
 - [Execução](#Execução)
 - [Lista de Exceções](#Lista-de-Exceções)
 - [Responsáveis](#Responsáveis)
 - [CRC](#CRC)
 
-## Organização do projeto
+## Organização
   O projeto está organizado em módulos que contém os cabeçalhos(.h) e implementações(.cpp), além da classe responsável pela interface gráfica(BancoAllegro.cpp).
  
 ## Execução do projeto
