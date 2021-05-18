@@ -16,7 +16,7 @@
 - [Execução](#Execução)
 - [Lista de Exceções](#Lista-de-Exceções)
 - [Responsáveis](#Responsáveis)
-- [CRC](#CRC)
+- [CRC's](#CRC's)
 
 ## Organização
   O projeto está organizado em módulos que contém os cabeçalhos(.h) e implementações(.cpp), além da classe responsável pela interface gráfica(BancoAllegro.cpp).
@@ -57,6 +57,129 @@ Clonar o repositório no Visual Studio, alterar as configurações para DeBug x8
 </tr>
 </tbody>
 </table>
+
+<br>
+
+<table>
+<thead>
+<tr>
+<th>Classe: Casas</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Responsabilidades</td>
+<td>Colaboração</td>
+</tr>
+<tr>
+<td>1.Nome da casa<br>
+2.Posição da casa no tabuleiro<br>
+</td>
+<td>Organização;</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+
+<table>
+<thead>
+<tr>
+<th>Classe: Casas Especiais </th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Responsabilidades</td>
+<td>Colaboração</td>
+</tr>
+<tr>
+<td>1.O tipo especial da casa<br>
+2.Executa a casa<br>
+</td>
+<td>Casas;</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+
+<table>
+<thead>
+<tr>
+<th>Classe: Casas Negociáveis</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Responsabilidades</td>
+<td>Colaboração</td>
+</tr>
+<tr>
+<td>
+1.Valor hipoteca<br>
+2.Valor<br>
+3.Efetua venda<br>
+4.Efetua hipoteca<br>
+</td>
+<td>Casas;</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+
+<table>
+<thead>
+<tr>
+<th>Classe: Imóvel </th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Responsabilidades</td>
+<td>Colaboração</td>
+</tr>
+<tr>
+<td>
+1.Preço casa <br>
+2.Valor 1 casa <br>
+3.Valor 2 casas<br>
+4.Valor 3 casas<br>
+5.Valor Hotel<br>
+</td>
+<td>Casas negociáveis;</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+
+<table>
+<thead>
+<tr>
+<th>Classe: Ação </th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Responsabilidades</td>
+<td>Colaboração</td>
+</tr>
+<tr>
+<td>1.Índice de multiplicação<br>
+</td>
+<td>Casas negociáveis;</td>
+</tr>
+</tbody>
+</table>
+
+
 
 
 ## Responsáveis
