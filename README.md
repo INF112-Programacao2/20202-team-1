@@ -15,7 +15,7 @@
 - [Organização](#Organização)
 - [Execução](#Execução)
 - [Diagrama de Classes](#Diagrama-de-classes)
-- [CRC](#CRC)
+- [Cartões CRC](#Cartões-CRC)
 - [Responsáveis](#Responsáveis)
 
 ## Organização
@@ -29,17 +29,17 @@ Clonar o repositório no Visual Studio, alterar as configurações para DeBug x8
 </a>
 
 <br>
-a
+ 
 
 ## Diagrama de Classes
 <a>
     <img src="https://cdn.discordapp.com/attachments/729689711416967239/844222451209994250/diagrama_de_classes_t1.png" alt="diagrama_de_classes_t1" title="print" align="right"  />
 </a>
 <br>
-a
+ 
 
 
-## CRC
+## Cartões CRC
 <table>
 <thead>
 <tr>
