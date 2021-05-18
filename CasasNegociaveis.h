@@ -28,7 +28,7 @@ public:
 	//Funcoes
 	virtual void efetua_compra(Jogador * jogador);
 	//virtual void efetua_hipoteca ();
-	virtual void efetua_cobranca(Jogador * jogador, Jogador * proprietario) = 0;
+	virtual void efetua_cobranca(Jogador * jogador, Jogador * proprietario, float i) = 0;
 	//Destrutor
 	~CasasNegociaveis();
 };

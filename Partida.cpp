@@ -8,12 +8,12 @@ Partida::Partida() {
     _rodada = 1;
     _casas[0] = new CasasEspeciais("Início", 0, "img/home.png");
     _casas[1] = new Imovel("Sydney", 0, "img/imovel0.png", 200, 400);
-    _casas[2] = new Imovel("Camberra", 0, "img/imovel0.png", 300, 600);
+    _casas[2] = new Imovel("Perth", 0, "img/imovel0.png", 300, 600);
     _casas[3] = new Acao("Itau", 0, "img/itau.png", 2000, 500);
     _casas[4] = new Imovel("Brisbane", 0, "img/imovel0.png", 400, 800);
     _casas[5] = new Imovel("Durban", 0, "img/imovel1.png", 500, 1000);
     _casas[6] = new Noticias("Noticia", 0, "img/news.png");
-    _casas[7] = new Imovel("Nairóbi", 0, "img/imovel1.png", 600, 1200);
+    _casas[7] = new Imovel("Nairobi", 0, "img/imovel1.png", 600, 1200);
     _casas[8] = new Imovel("Luanda", 0, "img/imovel1.png", 700, 1400);
     _casas[9] = new CasasEspeciais("Xadrez", 0, "img/jail.png");
     _casas[10] = new Noticias("Noticia", 0, "img/news.png");
@@ -37,7 +37,7 @@ Partida::Partida() {
     _casas[28] = new Imovel("Pequim", 0, "img/imovel6.png", 1300, 2600);
     _casas[29] = new Noticias("Noticia", 0, "img/news.png");
     _casas[30] = new Imovel("Moscou", 0, "img/imovel6.png", 1200, 2400);
-    _casas[31] = new Imovel("Pequim", 0, "img/imovel6.png", 1100, 2200);
+    _casas[31] = new Imovel("Seoul", 0, "img/imovel6.png", 1100, 2200);
     _casas[32] = new Imovel("Tokyo", 0, "img/imovel7.png", 1000, 2000);
     _casas[33] = new Acao("Fiat", 0, "img/fiat.png", 2000, 500);
     _casas[34] = new Imovel("Cairo", 0, "img/imovel7.png", 900, 1800);
@@ -66,7 +66,7 @@ Partida::Partida() {
             }
         }
     }
-    int dinheiroInicial = 1000;
+    int dinheiroInicial = 2000;
     _jogador[0] = new Jogador(0, dinheiroInicial, "Ana", 0, "img/player1.png");
     _jogador[1] = new Jogador(1, dinheiroInicial, "Bruno", 1, "img/player2.png");
     _jogador[2] = new Jogador(2, dinheiroInicial, "Felipe", 2, "img/player3.png");

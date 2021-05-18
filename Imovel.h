@@ -11,7 +11,7 @@ public:
     //metodos de imovel
     void cobrar();
 
-    virtual void efetua_cobranca(Jogador * jogador, Jogador * proprietario) override;
+    virtual void efetua_cobranca(Jogador * jogador, Jogador * proprietario, float i) override;
 
 	//Setters
 	void set_valor_aluguel(int valor);

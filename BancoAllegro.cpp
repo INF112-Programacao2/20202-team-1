@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
+#include <iomanip>
 #include <allegro5\allegro.h>
 #include <allegro5\allegro_image.h>
 #include <allegro5\allegro_font.h>
@@ -82,6 +84,7 @@ int main()
     al_init_acodec_addon();
     al_init_primitives_addon();
 
+    ALLEGRO_FONT* opensans_bold_16 = al_load_ttf_font("ProductSansRegular.ttf", 16, 0);
     ALLEGRO_FONT* opensans_bold_24 = al_load_ttf_font("ProductSansRegular.ttf", 24, 0);
     ALLEGRO_FONT* opensans_bold_32 = al_load_ttf_font("ProductSansBold.ttf", 32, 0);
     ALLEGRO_FONT* opensans_bold_48 = al_load_ttf_font("ProductSansBold.ttf", 48, 0);
@@ -221,6 +224,7 @@ int main()
     int casa_exibida = -1;
     bool jogadores_eliminados[6];
     int valorAnterior[6], valorMudanca[6], contFramesMudanca[6];
+    float indAumento[36];
     for (int i = 0; i < 6; i++) {
         jogadores_eliminados[i] = false;
         valorAnterior[i] = partida.get_jogador(i)->get_quantidadeDinheiro();
@@ -241,6 +245,7 @@ int main()
     for (int i = 0; i < 36; i++) {
         xCasa[i] = xCasaAux;
         yCasa[i] = yCasaAux;
+        indAumento[i] = 0;
         if (i < 9) {
             xCasaAux -= 192;
         }
@@ -359,10 +364,22 @@ int main()
                     if (CasasNegociaveis* casaAux = dynamic_cast<CasasNegociaveis*> (partida.get_casa(j)))
                     {
                         if (casaAux->get_proprietario() == i) {
-                            al_draw_text(opensans_bold_24, al_map_rgb(0, 0, 0), 1920 - xTabuleiro, yTabuleiro, ALLEGRO_ALIGN_CENTRE, casaAux->get_nome().c_str());
-                            al_draw_line(1920 - xTabuleiro - 58, yTabuleiro + 32, 1920 - xTabuleiro + 58, yTabuleiro + 32,
+                            std::string nomeEInd;
+                            if (Imovel* casaAux2 = dynamic_cast<Imovel*> (partida.get_casa(j))) {
+                                std::stringstream stream;
+                                stream << std::fixed << std::setprecision(1) << (indAumento[j] + 1);
+                                nomeEInd = "x(" + stream.str() + ")";
+                                al_draw_text(opensans_bold_24, al_map_rgb(0, 0, 0), 1920 - xTabuleiro - 67, yTabuleiro, ALLEGRO_ALIGN_LEFT, casaAux->get_nome().c_str());
+                                al_draw_text(opensans_bold_16, al_map_rgb(0, 0, 0), 1920 - xTabuleiro + 67, yTabuleiro + 8, ALLEGRO_ALIGN_RIGHT, nomeEInd.c_str());
+                            }
+                            else {
+                                nomeEInd = casaAux->get_nome();
+                                al_draw_text(opensans_bold_24, al_map_rgb(0, 0, 0), 1920 - xTabuleiro, yTabuleiro, ALLEGRO_ALIGN_CENTRE, nomeEInd.c_str());
+                            }
+                            
+                            al_draw_line(1920 - xTabuleiro - 68, yTabuleiro + 32, 1920 - xTabuleiro + 68, yTabuleiro + 32,
                                 al_map_rgb(colorR[j], colorG[j], colorB[j]), 8);
-                            yTabuleiro += 36;
+                            yTabuleiro += 42;
                         }
                     }
                 }
@@ -467,7 +484,14 @@ int main()
                     if (casaFinal != casaAtual[partida.get_turno()]) {
                         casaAtual[partida.get_turno()]++;
                         if (casaAtual[partida.get_turno()] == 36) {
-                            partida.get_jogador(partida.get_turno())->receber_dinheiro(2000);
+                            partida.get_jogador(partida.get_turno())->receber_dinheiro(500);
+                            for (int i = 0; i < 36; i++) {
+                                if (CasasNegociaveis* casaNegociavelAux = dynamic_cast<CasasNegociaveis*> (partida.get_casa(i))) {
+                                    if (casaNegociavelAux->get_proprietario() == partida.get_turno()) {
+                                        indAumento[i] += 0.2;
+                                    }
+                                }
+                            }
                             casaAtual[partida.get_turno()] = 0;
                         }
                     }
@@ -505,16 +529,18 @@ int main()
                         }
                         else if (CasasNegociaveis* casaNegociavelAux = dynamic_cast<CasasNegociaveis*> (partida.get_casa(partida.get_posicao_jogador(partida.get_turno()))))
                         {
-                            if (partida.get_jogador(partida.get_turno())->get_quantidadeDinheiro() <= casaNegociavelAux->get_valor_compra()) {
-                                allReady = true;
-                            }
-                            else if (casaNegociavelAux->get_proprietario() == -1) {
-                                negociavelOn = true;
+                            if (casaNegociavelAux->get_proprietario() == -1) {
+                                if (partida.get_jogador(partida.get_turno())->get_quantidadeDinheiro() <= casaNegociavelAux->get_valor_compra()) {
+                                    allReady = true;
+                                }
+                                else {
+                                    negociavelOn = true;
+                                }
                             }
                             else {
                                 if (casaNegociavelAux->get_proprietario() != partida.get_turno()) {
                                     try {
-                                        casaNegociavelAux->efetua_cobranca(partida.get_jogador(partida.get_turno()), partida.get_jogador(casaNegociavelAux->get_proprietario()));
+                                        casaNegociavelAux->efetua_cobranca(partida.get_jogador(partida.get_turno()), partida.get_jogador(casaNegociavelAux->get_proprietario()), (indAumento[partida.get_jogador(partida.get_turno())->get_posicao()] + 1));
                                     }
                                     catch (ExcecaoJogador &e) {
                                         std::cout << e.what();
@@ -566,6 +592,7 @@ int main()
                     for (int i = 0; i < 36; i++) {
                         if (CasasNegociaveis* casaNegociavelAux = dynamic_cast<CasasNegociaveis*> (partida.get_casa(i))) {
                             if (casaNegociavelAux->get_proprietario() == partida.get_turno()) {
+                                indAumento[i] = 0;
                                 casaNegociavelAux->set_proprietario(-1);
                             }
                         }
@@ -620,6 +647,8 @@ int main()
             std::string texto_nome = "Vez de " + partida.get_nome_jogador(partida.get_turno());
             al_draw_text(opensans_bold_32, al_map_rgb(0, 0, 0), 1920 - 208, 120, ALLEGRO_ALIGN_RIGHT, texto_rodada.c_str());
             al_draw_text(opensans_bold_32, al_map_rgb(0, 0, 0), 208, 120, ALLEGRO_ALIGN_LEFT, texto_nome.c_str());
+            al_draw_text(opensans_bold_24, al_map_rgb(0, 0, 0), 1920 - 208, 1080 - 120 - 32, ALLEGRO_ALIGN_RIGHT, "Aperte (Espaco) para avancar");
+            al_draw_text(opensans_bold_24, al_map_rgb(0, 0, 0), 208, 1080 - 120 - 32, ALLEGRO_ALIGN_LEFT, "Aperte (Esc) para encerrar o jogo");
 
 
             //mostra o card das casas e suas informacoes
@@ -687,6 +716,7 @@ int main()
 
     //encerra todas as utilizacoes do programa
     al_destroy_display(display);
+    al_destroy_font(opensans_bold_16);
     al_destroy_font(opensans_bold_24);
     al_destroy_font(opensans_bold_32);
     al_destroy_font(opensans_bold_48);

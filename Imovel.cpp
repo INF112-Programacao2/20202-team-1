@@ -11,10 +11,15 @@ Imovel::~Imovel() {}
 //funcoes
 void Imovel::cobrar() {}
 
-void Imovel::efetua_cobranca(Jogador * jogador, Jogador * proprietario) {
-	jogador->pagar(this->_valor_aluguel);
-	proprietario->receber_dinheiro(this->_valor_aluguel);
-
+void Imovel::efetua_cobranca(Jogador * jogador, Jogador * proprietario, float i) {
+	if (jogador->get_quantidadeDinheiro() <= (this->_valor_aluguel * i)) {
+		proprietario->receber_dinheiro(jogador->get_quantidadeDinheiro());
+		jogador->pagar(jogador->get_quantidadeDinheiro());
+	}
+	else {
+		jogador->pagar(this->_valor_aluguel * i);
+		proprietario->receber_dinheiro(this->_valor_aluguel * i);
+	}
 }
 
 // Setters
